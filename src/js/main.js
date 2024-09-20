@@ -1,3 +1,8 @@
+function adjustTextareaHeight(textarea) {
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+}
+
 document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM to be fully loaded
   // Listen for the form submit event
   const form = document.querySelector('form');
@@ -27,8 +32,10 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     const data = await response.json();
     responseText.value = data.answer;
-
     console.log(data);
+
+    // Adjust the height of the textarea to fit the content
+    adjustTextareaHeight(responseText);
 
     form.reset();
     // promptInput.focus();

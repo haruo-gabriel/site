@@ -9,13 +9,19 @@
 <body>
   <div id="immutable">
     <h1 id="main-title">site</h1>
+    <p id="description">Monte seu próprio site usando IA</p>
     <form>
-      <input id="prompt-text" name="prompt" placeholder="Escreva seu prompt...">
-      <button id="prompt-button" type="submit">Enviar</button>
+      <input id="prompt-text" name="prompt" placeholder="Descreva o div desejado...">
+      <div id="button-container">
+        <button id="prompt-button" type="submit">Enviar</button>
+      </div>
     </form>
-    <button id="undo-button" type="button">Desfazer</button>
     <div id="response-container">
-      <textarea id="response-text" name="response" placeholder="Maritaca pensando..." readonly></textarea>
+      <textarea id="response-text" name="response" placeholder="Maritaca pensando..."></textarea>
+    </div>
+    <div id="button-container">
+      <button id="insert-button" type="button">Inserir</button>
+      <button id="undo-button" type="button">Desfazer</button>
     </div>
   </div>
 
