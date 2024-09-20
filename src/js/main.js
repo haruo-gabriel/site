@@ -8,8 +8,8 @@ function adjustTextareaHeight(textarea) {
 document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM to be fully loaded
   // Listen for the form submit event
   const form = document.querySelector('form');
-  const promptInput = document.getElementById('prompt-text');
-  const responseText = document.getElementById('response-text');
+  const promptInput = document.getElementById('prompt');
+  const responseText = document.getElementById('response');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();

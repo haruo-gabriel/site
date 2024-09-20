@@ -11,19 +11,20 @@ body {
   font-style: italic;
 }
 
-#prompt-text {
+.text-box {
   width: 100%;
-  height: 100%;
   padding: 10px;
-  margin: 20px;
+  margin: 20px 0px;
   box-sizing: border-box;
 }
 
-#response-text {
-  width: 100%;
+#prompt {
+  height: 100%;
+}
+
+#response {
   min-height: auto;
   padding: 10px;
-  margin: 20px;
   box-sizing: border-box;
   resize: none;
   white-space: pre-wrap;
