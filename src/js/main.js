@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     const data = await response.json();
     responseText.value = data.answer;
+    console.log('Received response from server:');
     console.log(data);
 
     stopPlaceholderAnimation(responseText);
