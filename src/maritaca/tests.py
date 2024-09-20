@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 import maritalk
@@ -21,6 +22,8 @@ def generate():
 	prompt = data.get('prompt')
 	response = model.generate(prompt, max_tokens=200)
 	answer = response["answer"]
+	answer = str(answer)
+	print(answer)
 	return jsonify({'answer': answer})
 
 if __name__ == '__main__':

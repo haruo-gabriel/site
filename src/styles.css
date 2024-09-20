@@ -1,17 +1,38 @@
-/* styles.css */
+body {
+  margin: 40px;
+}
 
 #main-title {
-  font-size: xx-large;
 }
 
 #prompt-text {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 #prompt-button {
 }
 
+#response-text {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
 #undo-button {
 }
 
-#response-text {
+button {
+  width: 50%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: block;
 }
