@@ -1,3 +1,5 @@
+import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
+
 function adjustTextareaHeight(textarea) {
   textarea.style.height = 'auto';
   textarea.style.height = textarea.scrollHeight + 'px';
@@ -14,7 +16,8 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     const promptMessage = promptInput.value;
     console.log(promptMessage);
 
-    // Send the prompt to the Python server
+    startPlaceholderAnimation(responseText);
+
     console.log('Sending prompt to server...');
 
     const response = await fetch('http://127.0.0.1:5000/generate', {
@@ -27,6 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     if (!response.ok) {
       console.error('Server error:', response.statusText);
+      stopPlaceholderAnimation(responseText);
       return;
     }
 
@@ -34,7 +38,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     responseText.value = data.answer;
     console.log(data);
 
-    // Adjust the height of the textarea to fit the content
+    stopPlaceholderAnimation(responseText);
     adjustTextareaHeight(responseText);
 
     form.reset();
