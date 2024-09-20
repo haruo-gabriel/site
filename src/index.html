@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>site</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
-  <form>
-    <div id="imutavel">
-      <h1>site</h1>
-      <input type="text" name="prompt" placeholder="Escreva seu prompt...">
-      <button type="submit">Submit</button>
-    </div>
 
-    <div id="imutavel">
+<body>
+  <div id="immutable">
+    <h1 id="main-title">site</h1>
+    <form>
+      <input id="prompt-text" name="prompt" placeholder="Escreva seu prompt...">
+      <button id="prompt-button" type="submit">Enviar</button>
+    </form>
+    <button id="rollback-button" type="button">Desfazer</button>
+    <div id="response-container">
+      <input id="response-text" name="response" placeholder="Maritaca pensando..." readonly>
     </div>
-  </form>
+  </div>
+
+  <div id="mutable">
+  </div>
 </body>
+
 </html>
