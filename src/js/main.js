@@ -20,6 +20,11 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       body: JSON.stringify({ prompt: promptMessage })
     });
 
+    if (!response.ok) {
+      console.error('Server error:', response.statusText);
+      return;
+    }
+
     const data = await response.json();
     responseText.value = data.answer;
 

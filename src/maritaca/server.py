@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import maritalk
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the API key from the .env file
 load_dotenv()
