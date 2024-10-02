@@ -7,8 +7,8 @@ function adjustTextareaHeight(textarea) {
 
 export function startPlaceholderAnimation(textArea) {
   // Clear the response box before processing the animation
-  adjustTextareaHeight(textArea);
   textArea.value = '';
+  adjustTextareaHeight(textArea);
 
   let dots = 0;
   placeholderInterval = setInterval(() => {
