@@ -1,9 +1,5 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 
-function adjustTextareaHeight(textarea) {
-  textarea.style.height = 'auto';
-  textarea.style.height = textarea.scrollHeight + 'px';
-}
 
 function disableSubmitButton(button) {
   button.disabled = true;
@@ -56,7 +52,6 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     await sendPromptToServer(promptMessage, responseText);
 
     stopPlaceholderAnimation(responseText);
-    adjustTextareaHeight(responseText);
     enableSubmitButton(submitButton);
 
     form.reset();
