@@ -49,10 +49,14 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     startPlaceholderAnimation(responseText);
     disableSubmitButton(submitButton);
 
-    await sendPromptToServer(promptMessage, responseText);
-
-    stopPlaceholderAnimation(responseText);
-    enableSubmitButton(submitButton);
+    try {
+      await sendPromptToServer(promptMessage, responseText);
+    } catch {
+      responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
+    } finally {
+      stopPlaceholderAnimation(responseText);
+      enableSubmitButton(submitButton);
+    }
 
     form.reset();
     // promptInput.focus();
