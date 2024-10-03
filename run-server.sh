@@ -8,4 +8,4 @@ source venv/bin/activate
 pip install flask flask-cors
 
 # Run the server
-python3 src/maritaca/server.py
+python3 src/maritaca/main.py

@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from maritaca.Maritaca import MaritacaResponseGenerator
+from Maritaca import Maritaca
 
 class Server:
 	def __init__(self) -> None:
 		self.server = Flask(__name__)
 		CORS(self.server)
-		self.response_generator = MaritacaResponseGenerator()
+		self.response_generator = Maritaca()
 		self.setup_routes()
 
 	def setup_routes(self):

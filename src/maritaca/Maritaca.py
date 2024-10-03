@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 import maritalk
 
-class MaritacaResponseGenerator:
+class Maritaca:
   def __init__(self):
     load_dotenv()
     key = os.getenv("MARITACAAI-KEY")

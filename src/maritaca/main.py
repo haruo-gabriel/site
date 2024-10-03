@@ -1,8 +1,8 @@
 from Server import Server
 
-def __main__():
+def main():
   server = Server()
   server.run()
 
-if "__name__" == __main__:
-  __main__
+if __name__ == "__main__":
+  main()
