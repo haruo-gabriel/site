@@ -38,12 +38,11 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
       // Aqui, a resposta já foi recebida com sucesso
       
-      // Extrai a div do texto da resposta
       const extractedContent = extractDiv(responseText.value);
       console.log('Extracted div:', extractedContent);
       
-      // Atualiza a prévia com o conteúdo extraído
       updatePreview(previewDiv, extractedContent);
+
       insertButton.disabled = false;
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
