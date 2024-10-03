@@ -2,6 +2,7 @@ import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateRe
 import { extractDiv } from './extractDiv.js';
 import { updatePreview, clearPreview } from './updatePreview.js';
 
+
 function disableSubmitButton(button) {
   button.disabled = true;
 }
