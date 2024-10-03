@@ -1,6 +1,5 @@
 venv
 .env
 __pycache__/
-.gitignore
 package.json
 teste.js
