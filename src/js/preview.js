@@ -1,10 +1,3 @@
-export function clearPreview() {
-  const preview = document.getElementById('preview-content');
-  if (preview) {
-    preview.innerHTML = '';
-  }
-}
-
 export function updatePreview(divContent) {
   try {
     const preview = document.getElementById('preview-content');
@@ -14,5 +7,12 @@ export function updatePreview(divContent) {
     preview.innerHTML = divContent;
   } catch (error) {
     console.error(error);
+  }
+}
+
+export function clearPreview() {
+  const preview = document.getElementById('preview-content');
+  if (preview) {
+    preview.innerHTML = '';
   }
 }

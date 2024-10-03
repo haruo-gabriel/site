@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     try {
       // Espera a resposta do servidor
       await sendPromptToServer(promptMessage, responseText);
+
+      // Aqui, a resposta já foi recebida com sucesso
       
       // Extrai a div do texto da resposta
       const extractedContent = extractDiv(responseText.value);
