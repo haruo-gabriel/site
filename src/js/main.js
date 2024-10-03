@@ -1,6 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
-import { updatePreview } from './preview.js';
+import { updatePreview } from './updatePreview.js';
 
 function disableSubmitButton(button) {
   button.disabled = true;
