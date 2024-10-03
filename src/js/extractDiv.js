@@ -6,7 +6,7 @@
 
 // const resp = "<div>" + matches[0] + "</div>"
 
-export function extractDivContent(text) {
+export function extractDiv(text) {
   // Pattern to match the entire <div>...</div> block, including nested <div> elements
   const pattern = /<div\b[^>]*>([\s\S]*?)<\/div>/gi;
   try {
@@ -17,7 +17,7 @@ export function extractDivContent(text) {
     // Return the first match
     return matches[0];
   } catch (error) {
-    console.error('Error extracting div content: ', error);
+    console.error('Error extracting div content:', error);
     return null;
   }
 }
