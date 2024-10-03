@@ -1,19 +1,54 @@
-import { getSiteHtml } from './save.js';
+var old_html = [];
+var updated_lines = [];
 
-var old_html = "";
 
+document.getElementById('insert-button').addEventListener('click', saveOldHtml);
 
 function saveOldHtml() {
-    console.log("Old html saved");
-    old_html = getSiteHtml();
+    old_html.push(getSiteHtml());
 }
 
+
+document.getElementById("undo-button").addEventListener("click", undo);
 
 function undo() {
-    if (old_html != "") {
-        loadSiteHtml(old_html);
+    if (old_html.length > 0) {
+        loadSiteHtml(old_html.pop());
     }
     else {
-        console.log("No previous state to load");
+        loadSiteHtml('{"content":""}');
     }
 }
+
+
+//document.getElementById('insert-button').addEventListener('click', updateUpdatedLines);
+
+//function updateUpdatedLines() {
+//    var response = document.getElementById('response').innerText;
+//    var numLines = response.split('\n').length;
+//    updated_lines.push(numLines);    
+//}
+
+
+//document.getElementById("undo-button").addEventListener("click", undoButGood);
+
+//function undoButGood(){
+//    console.log("Undoing...");
+//    if (updated_lines.length == 0) {
+//        console.log("No previous state to load");
+//        return
+//    }
+//    var html = getSiteHtml();
+//    console.log(html);
+//    var lines = html.split('\n');
+//    var new_html = "";
+//    var numLines = updated_lines.pop();
+//    for (var i = 0; i < lines.length - numLines; i++) {
+//        new_html += lines[i] + '\n';
+//    }
+//    console.log(new_html);
+//    if(updated_lines.length == 0){
+//        old_html = "";
+//    }
+//    loadSiteHtml(new_html);
+//}
