@@ -1,5 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
+import { saveOldHtml } from './undo.js';
 
 function disableSubmitButton(button) {
   button.disabled = true;
