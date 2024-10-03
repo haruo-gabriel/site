@@ -1,5 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
+import { updatePreview } from './preview.js';
 
 function disableSubmitButton(button) {
   button.disabled = true;
@@ -56,6 +57,9 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       // Extrai a div do texto da resposta
       const extractedContent = extractDiv(responseText.value);
       console.log('Extracted div:', extractedContent);
+      
+      // Atualiza a prévia com o conteúdo extraído
+      updatePreview(extractedContent);
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
     } finally {

@@ -1,8 +1,11 @@
 export function updatePreview(divContent) {
-  const preview = document.getElementById('preview');
-  if (!preview) {
-    console.error('Preview element not found');
-    return;
+  try {
+    const preview = document.getElementById('preview-content');
+    if (!preview) {
+      throw new Error('Preview div not found');
+    }
+    preview.innerHTML = divContent;
+  } catch (error) {
+    console.error(error);
   }
-  preview.innerHTML = divContent;
 }
