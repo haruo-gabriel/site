@@ -1,6 +1,5 @@
 var old_html = [];
-var updated_lines = [];
-
+//var updated_lines = [];
 
 document.getElementById('insert-button').addEventListener('click', saveOldHtml);
 
@@ -18,6 +17,13 @@ function undo() {
     else {
         loadSiteHtml('{"content":""}');
     }
+    if (old_html.length > 0) {
+        loadSiteHtml(old_html.pop());
+    }
+    else {
+        loadSiteHtml('{"content":""}');
+    }
+    old_html.push(getSiteHtml());
 }
 
 
