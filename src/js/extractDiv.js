@@ -8,14 +8,14 @@
 
 export function extractDiv(text) {
   // Pattern to match the entire <div>...</div> block, including nested <div> elements
-  const pattern = /<div\b[^>]*>([\s\S]*?)<\/div>/gi;
+  // Regex para capturar o conteúdo da primeira div até o último </div>
+  const regex = /<div\b[^>]*>(.*)<\/div/is;
   try {
-    const matches = text.match(pattern);
-    if (!matches) {
+    const match = regex.exec(text);
+    if (!match) {
       throw new Error('No matches found');
     }
-    // Return the first match
-    return matches[0];
+    return match[1];
   } catch (error) {
     console.error('Error extracting div content:', error);
     return null;
