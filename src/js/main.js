@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
   const promptInput = document.getElementById('prompt');
   const responseText = document.getElementById('response');
   const submitButton = document.getElementById('prompt-button');
+  const previewDiv = document.getElementById('preview-content');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     startPlaceholderAnimation(responseText);
     disableSubmitButton(submitButton);
-    clearPreview();
+    clearPreview(previewDiv);
 
     try {
       // Espera a resposta do servidor
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       console.log('Extracted div:', extractedContent);
       
       // Atualiza a prévia com o conteúdo extraído
-      updatePreview(extractedContent);
+      updatePreview(previewDiv, extractedContent);
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
     } finally {
