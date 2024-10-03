@@ -1,5 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
+import { updatePreview, clearPreview } from './updatePreview.js';
 
 function disableSubmitButton(button) {
   button.disabled = true;
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
   const promptInput = document.getElementById('prompt');
   const responseText = document.getElementById('response');
   const submitButton = document.getElementById('prompt-button');
+  const previewDiv = document.getElementById('preview-content');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -48,14 +50,20 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     startPlaceholderAnimation(responseText);
     disableSubmitButton(submitButton);
+    clearPreview(previewDiv);
 
     try {
       // Espera a resposta do servidor
       await sendPromptToServer(promptMessage, responseText);
+
+      // Aqui, a resposta já foi recebida com sucesso
       
       // Extrai a div do texto da resposta
       const extractedContent = extractDiv(responseText.value);
       console.log('Extracted div:', extractedContent);
+      
+      // Atualiza a prévia com o conteúdo extraído
+      updatePreview(previewDiv, extractedContent);
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
     } finally {
