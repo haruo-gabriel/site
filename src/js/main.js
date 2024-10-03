@@ -1,5 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
+import { stackToHtml } from './stackToHtml.js';
 import { updatePreview, clearPreview } from './updatePreview.js';
 
 
@@ -42,6 +43,8 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
   const responseText = document.getElementById('response');
   const submitButton = document.getElementById('prompt-button');
   const previewDiv = document.getElementById('preview-content');
+  const insertButton = document.getElementById('insert-button');
+  const undoButton = document.getElementById('undo-button');
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       
       // Atualiza a prévia com o conteúdo extraído
       updatePreview(previewDiv, extractedContent);
+      insertButton.disabled = false;
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
     } finally {
@@ -75,4 +79,17 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
     form.reset();
     // promptInput.focus();
   });
+
+  insertButton.addEventListener('click', (event) => {
+    stack.push();
+    stackToHtml(stack);
+    insertButton.disabled = true;
+    clearPreview(previewDiv);
+  });
+
+  undoButton.addEventListener('click', (event) => {
+    stack.pop();
+    stackToHtml(stack);
+  });
+
 });
