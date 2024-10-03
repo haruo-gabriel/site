@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       console.log('Extracted div:', extractedContent);
       
       updatePreview(previewDiv, extractedContent);
-
       insertButton.disabled = false;
     } catch {
       responseText.value = 'Ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.';
