@@ -1,6 +1,6 @@
 import { startPlaceholderAnimation, stopPlaceholderAnimation } from './animateResponsePlaceholder.js';
 import { extractDiv } from './extractDiv.js';
-import { updatePreview } from './updatePreview.js';
+import { updatePreview, clearPreview } from './updatePreview.js';
 
 function disableSubmitButton(button) {
   button.disabled = true;
@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
 
     startPlaceholderAnimation(responseText);
     disableSubmitButton(submitButton);
+    clearPreview();
 
     try {
       // Espera a resposta do servidor
