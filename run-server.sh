@@ -5,7 +5,7 @@
 source venv/bin/activate
 
 # Install dependencies
-pip install flask flask-cors
+pip install flask flask-cors python-dotenv maritalk
 
 # Run the server
 python3 src/maritaca/main.py
