@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', (event) => { // Wait for the DOM t
       // Aqui, a resposta já foi recebida com sucesso
       
       // Extrai a div do texto da resposta
-      const extractedContent = extractDiv(responseText.value);
-      console.log('Extracted div:', extractedContent);
+      // const extractedContent = extractDiv(responseText.value);
+      // console.log('Extracted div:', extractedContent);
+      const extractedContent = responseText.value;
       
       // Atualiza a prévia com o conteúdo extraído
       updatePreview(previewDiv, extractedContent);
