@@ -18,6 +18,18 @@ function loadSiteHtml(json) {
 }
 
 
+document.getElementById("insert-button").addEventListener("click", insertNewElement);
+
+function insertNewElement() {
+    console.log("Inserting new element");
+    var html = document.getElementById("mutable").innerHTML;
+    var newDiv = document.getElementById("preview-content").innerHTML;
+    html += newDiv;
+    var mutableDiv = document.getElementById("mutable");
+    mutableDiv.innerHTML = html;
+}
+
+
 //document.getElementById("test").addEventListener("click", addTestDiv);
 //
 //function addTestDiv() {
