@@ -30,6 +30,39 @@ function insertNewElement() {
 }
 
 
+document.getElementById("export-button").addEventListener("click", exportSiteHtml);
+
+function exportSiteHtml() {
+    const html = document.getElementById("mutable").innerHTML;
+    navigator.clipboard.writeText(html).then(() => {
+        console.log('HTML copied to clipboard');
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+    const alertBox = document.createElement('div');
+    alertBox.innerText = 'Content copied to clipboard!';
+    alertBox.style.alignContent = 'center';
+    alertBox.style.width = '200px';
+    alertBox.style.margin = '0 auto';
+    alertBox.style.textAlign = 'center';
+    alertBox.style.backgroundColor = '#4CAF50';
+    alertBox.style.color = 'white';
+    alertBox.style.padding = '10px';
+    alertBox.style.borderRadius = '5px';
+    alertBox.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+    alertBox.style.zIndex = '1000';
+    document.body.appendChild(alertBox);
+
+    setTimeout(() => {
+        alertBox.style.transition = 'opacity 0.5s';
+        alertBox.style.opacity = '0';
+        setTimeout(() => {
+            document.body.removeChild(alertBox);
+        }, 600);
+    }, 600);
+}
+
+
 document.getElementById("insert-fix-button").addEventListener("click", insertFix);
 
 function insertFix() {
