@@ -21,7 +21,7 @@ cd site
 3. Crie um ambiente virtual python
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 ```
 
 3. Autorize o script do servidor
@@ -33,7 +33,7 @@ chmod +x run-server.sh
 4. Inicialize o servidor
 
 ```bash
-./run.sh
+./run-server.sh
 ```
 
 O script automaticamente instalará as dependências necessárias e inicializará o servidor.
