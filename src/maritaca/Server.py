@@ -11,6 +11,7 @@ class Server:
 
 	def setup_routes(self):
 		self.server.route('/generate', methods=['POST'])(self.generate)
+		self.server.route('/fix', methods=['POST'])(self.generate_fix)
 
 	def generate(self):
 		try:
@@ -19,7 +20,22 @@ class Server:
 					return jsonify({'error': 'Invalid input'}), 400
 
 			prompt = data['prompt']
-			answer = self.response_generator.generate_response(prompt)
+			answer = self.response_generator.generate_response(prompt, 'generate', None)
+			print(answer)
+			return jsonify({'answer': answer})
+		except Exception as e:
+			print(f"Error: {e}")
+			return jsonify({'error': 'Internal server error'}), 500
+
+	def generate_fix(self):
+		try:
+			data = request.json
+			if not data or 'prompt' not in data:
+					return jsonify({'error': 'Invalid input'}), 400
+
+			prompt = data['prompt']
+			html = data['html']
+			answer = self.response_generator.generate_response(prompt, 'fix', html)
 			print(answer)
 			return jsonify({'answer': answer})
 		except Exception as e:
