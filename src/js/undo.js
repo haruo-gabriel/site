@@ -2,6 +2,7 @@ var old_html = [];
 //var updated_lines = [];
 
 document.getElementById('insert-button').addEventListener('click', saveOldHtml);
+document.getElementById('insert-fix-button').addEventListener('click', saveOldHtml);
 
 function saveOldHtml() {
     old_html.push(getSiteHtml());
