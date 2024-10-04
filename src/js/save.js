@@ -63,6 +63,17 @@ function exportSiteHtml() {
 }
 
 
+document.getElementById("insert-fix-button").addEventListener("click", insertFix);
+
+function insertFix() {
+    var newHtml = document.getElementById("preview-content").innerHTML;
+    var mutableDiv = document.getElementById("mutable");
+    mutableDiv.innerHTML = newHtml;
+}
+
+
+
+
 //document.getElementById("test").addEventListener("click", addTestDiv);
 //
 //function addTestDiv() {
